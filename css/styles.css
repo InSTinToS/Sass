@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body ul {
+  list-style: none;
+  height: 300px;
+  border: solid red 1px;
+}
+body ul li {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 30px;
+}
+body ul li.classToInterpolate {
+  color: blue;
+}
+body ul li:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=styles.css.map */
