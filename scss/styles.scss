@@ -1,41 +1,26 @@
-$color: red;
-$border: solid $color 1px;
-$height: 300;
-$font-size: calc($height / 10) + px; // not use + "px"
-$family: Arial;
-
-$listOfColorVariables: $color, $border; // List
-
-$mapOfColorVariables: (
-  color1: $color,
-  color2: $border,
-); //Map
-
-$interpolation: classToInterpolate;
-
 body {
   margin: 0;
   padding: 0;
 
+  .li {
+    color: red;
+
+    &:hover {
+      color: blue;
+    }
+  }
+
   ul {
-    list-style: none;
-    height: $height + px;
-    border: $border;
-
     li {
-      font: {
-        weight: bold;
-        family: $family;
-        size: $font-size;
-      }
+      @extend .li;
+    }
+  }
 
-      &.#{$interpolation} {
-        color: blue;
-      }
+  button {
+    color: yellow;
 
-      &:hover {
-        color: $color;
-      }
+    &:hover {
+      @extend .li, :hover;
     }
   }
 }

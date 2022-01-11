@@ -2,21 +2,14 @@ body {
   margin: 0;
   padding: 0;
 }
-body ul {
-  list-style: none;
-  height: 300px;
-  border: solid red 1px;
+body .li, body button:hover, body ul li {
+  color: red;
 }
-body ul li {
-  font-weight: bold;
-  font-family: Arial;
-  font-size: 30px;
-}
-body ul li.classToInterpolate {
+body .li:hover, body button:hover, body ul li:hover {
   color: blue;
 }
-body ul li:hover {
-  color: red;
+body button {
+  color: yellow;
 }
 
 /*# sourceMappingURL=styles.css.map */
