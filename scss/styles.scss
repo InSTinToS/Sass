@@ -1,43 +1,39 @@
-@mixin margin-padding($spaces...) {
-  padding: $spaces;
-  margin: $spaces;
-}
+// @function vs @mixins
+// @function have @return and @mixins not
 
-@mixin border-radius($radius: 10px) {
-  -moz-border-radius: $radius;
-  -ms--border-radius: $radius;
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
+@function calc-fluid($target, $container) {
+  $result: ($target / $container) * 100%;
+
+  @return $result;
 }
 
 body {
   margin: 0;
   padding: 0;
 
-  .li {
-    color: red;
+  div {
+    width: 1000;
 
-    &:hover {
-      color: blue;
-    }
-  }
-
-  ul {
-    li {
-      @extend .li;
-    }
-  }
-
-  button {
-    @include border-radius();
-
-    @include margin-padding(40px 20px 30px 10px);
-
-    color: green;
-    border: solid green 1px;
-
-    &:hover {
-      @extend .li, :hover;
+    button {
+      width: calc-fluid(400, 1000);
     }
   }
 }
+
+/*
+  Utilities functions
+
+  lighten(color, amount)
+  darken(color, amount)
+  quote(string) -> add quote
+  unquote(string) -> remove quote
+  to-upper-case(string)
+  to-lower-case(string)
+  str-length(string) -> string-length
+  percentage(number) -> number * 100 = result%
+  round(number)
+  ceil(number) -> round to up
+  floor(number) -> round to down
+
+  and more...
+*/
