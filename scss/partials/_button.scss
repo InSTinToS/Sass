@@ -1,4 +1,4 @@
-button {
+@mixin default($color: red) {
   display: block;
 
   padding: 24px;
@@ -7,5 +7,9 @@ button {
 
   color: white;
   border: none;
-  background-color: red;
+  background-color: $color;
+}
+
+button {
+  @include default;
 }

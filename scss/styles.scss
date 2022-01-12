@@ -1,3 +1,7 @@
 //partials: use _<filename> to not compile scss files (and create partials)
-@import "partials/button";
+@use "partials/button";
 @import "partials/reset";
+
+ul li {
+  @include button.default(blue);
+}

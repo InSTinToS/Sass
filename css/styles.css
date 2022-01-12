@@ -8,4 +8,19 @@ button {
   background-color: red;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: block;
+  padding: 24px;
+  margin: 0 auto;
+  margin-top: 24px;
+  color: white;
+  border: none;
+  background-color: blue;
+}
+
 /*# sourceMappingURL=styles.css.map */
