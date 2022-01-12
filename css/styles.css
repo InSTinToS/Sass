@@ -1,41 +1,9 @@
 body div button {
   display: block;
-  margin: 10px auto;
-}
-
-body div button {
+  margin: 0 auto;
+  margin-top: 20px;
   color: white;
-  background-color: blue;
-}
-
-body div ul li.item-1 {
-  width: 100px;
-}
-body div ul li.item-2 {
-  width: 200px;
-}
-body div ul li.item-3 {
-  width: 300px;
-}
-
-body div ul li.item-1 {
-  height: 40px;
-}
-body div ul li.item-2 {
-  height: 80px;
-}
-body div ul li.item-3 {
-  height: 120px;
-}
-
-body div ul li.red {
   background-color: red;
-}
-body div ul li.green {
-  background-color: green;
-}
-body div ul li.blue {
-  background-color: blue;
 }
 
 body {
@@ -44,12 +12,21 @@ body {
 }
 body div button {
   border: none;
-  padding: 16px;
 }
-body div ul li {
-  height: 20px;
-  margin-bottom: 2px;
-  list-style-type: none;
+@media screen and (orientation: landscape) {
+  body div button {
+    padding: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body div button {
+    padding: 24px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body div button {
+    padding: 32px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

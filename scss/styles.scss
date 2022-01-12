@@ -1,58 +1,37 @@
-$useMixins: false;
+$tablet-width: 768px;
+$desktop-width: 1024px;
 
-//@extend for %placeholders
-//@include for @mixins
-//use() for @function use() {}
-
-@mixin center {
+%buttonStyle {
   display: block;
-  margin: 10px auto;
-}
 
-%center {
-  display: block;
-  margin: 10px auto;
-}
+  margin: 0 auto;
+  margin-top: 20px;
 
-%usingIf {
   color: white;
+  background-color: red;
+}
 
-  @if ($useMixins) {
-    @include center;
-    background-color: red;
-  } @else {
-    @extend %center;
-    background-color: blue;
+@mixin landscape {
+  @extend %buttonStyle;
+
+  @media screen and (orientation: landscape) {
+    @content;
   }
 }
 
-%usingFor {
-  @for $i from 1 through 3 {
-    &.item-#{$i} {
-      width: 100px * $i;
-    }
+@mixin tablet {
+  @extend %buttonStyle;
+
+  @media screen and (min-width: #{$tablet-width}) {
+    @content;
   }
 }
 
-%usingWhile {
-  $i: 1;
+@mixin desktop {
+  @extend %buttonStyle;
 
-  @while $i <= 3 {
-    &.item-#{$i} {
-      height: 40px * $i;
-    }
-
-    $i: $i + 1;
-  }
-}
-
-%usingEach {
-  $colors: "red", "green", "blue"; //need have quote because is colors
-
-  @each $color in $colors {
-    &.#{$color} {
-      background-color: unquote($color); //unquote to work
-    }
+  @media screen and (min-width: #{$desktop-width}) {
+    @content;
   }
 }
 
@@ -62,21 +41,19 @@ body {
 
   div {
     button {
-      @extend %usingIf;
-
       border: none;
-      padding: 16px;
-    }
 
-    ul li {
-      @extend %usingFor;
-      @extend %usingEach;
-      @extend %usingWhile;
+      @include landscape {
+        padding: 16px;
+      }
 
-      height: 20px;
-      margin-bottom: 2px;
+      @include tablet {
+        padding: 24px;
+      }
 
-      list-style-type: none;
+      @include desktop {
+        padding: 32px;
+      }
     }
   }
 }
