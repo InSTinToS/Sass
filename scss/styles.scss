@@ -1,10 +1,15 @@
-// @function vs @mixins
-// @function have @return and @mixins not
+// %placeholders vs @mixins
+// @mixins receive params but %placeholders don't
+// if is the same style is better to use placeholders for best performance
 
-@function calc-fluid($target, $container) {
-  $result: ($target / $container) * 100%;
+@mixin center {
+  display: block;
+  margin: 0 auto;
+}
 
-  @return $result;
+%center {
+  display: block;
+  margin: 0 auto;
 }
 
 body {
@@ -12,28 +17,9 @@ body {
   padding: 0;
 
   div {
-    width: 1000;
-
     button {
-      width: calc-fluid(400, 1000);
+      // change to @mixin center and look css compiled to see differences
+      @extend %center;
     }
   }
 }
-
-/*
-  Utilities functions
-
-  lighten(color, amount)
-  darken(color, amount)
-  quote(string) -> add quote
-  unquote(string) -> remove quote
-  to-upper-case(string)
-  to-lower-case(string)
-  str-length(string) -> string-length
-  percentage(number) -> number * 100 = result%
-  round(number)
-  ceil(number) -> round to up
-  floor(number) -> round to down
-
-  and more...
-*/
