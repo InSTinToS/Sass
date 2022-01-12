@@ -1,10 +1,14 @@
 {
-  "name": "Sass",
+  "name": "sass",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Miguel <miguelandradebarreto2@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "sass": "sass scss/styles.scss css/styles.css --watch"
+    "sass": "sass scss/styles.scss css/styles.css --watch",
+    "sass-nested": "sass scss/styles.scss css/styles.css --watch",
+    "sass-expanded": "sass scss/styles.scss css/styles.css --watch --output-style expanded",
+    "sass-compact": "sass scss/styles.scss css/styles.css --watch --output-style compact",
+    "sass-compressed": "sass scss/styles.scss css/styles.css --watch --output-style compressed"
   }
 }
