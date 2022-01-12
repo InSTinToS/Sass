@@ -1,3 +1,15 @@
+@mixin margin-padding($spaces...) {
+  padding: $spaces;
+  margin: $spaces;
+}
+
+@mixin border-radius($radius: 10px) {
+  -moz-border-radius: $radius;
+  -ms--border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -17,7 +29,12 @@ body {
   }
 
   button {
-    color: yellow;
+    @include border-radius();
+
+    @include margin-padding(40px 20px 30px 10px);
+
+    color: green;
+    border: solid green 1px;
 
     &:hover {
       @extend .li, :hover;
